@@ -23,3 +23,4 @@ matrix <user.letter>:
     edit.right()
     insert("  ")
     
+next: key(tab)
