@@ -66,6 +66,11 @@ inverse:
 switch <number> by <number>:
     insert("R_{number} \leftrightarrow R_{number_2} ")
     key(right)
+operations:
+    insert("\stackrelthree ")
+    key(down)
+    insert("~")
+    key(up)
 scale <number> by <number>:
     insert("R_{number} ")
     key(alt-/)
