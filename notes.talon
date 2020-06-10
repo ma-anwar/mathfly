@@ -29,3 +29,29 @@ matrix <user.letter>:
     
 next: key(tab)
 kick: ", "
+that is: "i.e. " 
+#push:
+#    key(end)
+#    key(end)
+
+push dot:
+    key(end)
+    key(end)
+    insert(".")
+
+push:
+    key(end)
+    key(end)
+    insert("  ")
+
+push comma:
+    key(end)
+    key(end)
+    insert(", ")
+the: "the "
+by: "by "
+of: "of "
+then: "then "
+push math:
+    key(space)
+    key(ctrl-m)

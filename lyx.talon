@@ -2,6 +2,10 @@ app: lyx
 app: LyX.exe
 app: LyX for Windows
 -
+#settings():
+#    key_wait = 1.4
+#    insert_wait = 10
+
 {tex_symbols}:
     key(\)
     insert(tex_symbols)
@@ -31,12 +35,18 @@ fraction: key(alt-m f)
 over: key(shift-left alt-m f down)
 (super script | to the power): key(^)
 sub script: key(_)
-sub (<user.letter>):
+under (<user.letter>):
     key(_)
     insert(letter)
     edit.right()
 
-sub (<number>):
+under (<number>):
+    key(_)
+    insert(number)
+    edit.right()
+
+<user.letter> under (<number>):
+    insert(letter)
     key(_)
     insert(number)
     edit.right()
@@ -130,6 +140,37 @@ hat <user.letter>:
  key(alt-m v)
  insert(letter)
  edit.right() 
+zero matrix:
+    key(alt-m v)
+    insert("0")
+    edit.right()
+
+homogenous system:
+    key(ctrl-m)
+    insert("A")
+    key(alt-m v)
+    insert("x")
+    edit.right()
+    insert("=")
+    key(alt-m v)
+    insert("0")
+    edit.right()
+    edit.right()
+linear system:
+    key(ctrl-m)
+    insert("A")
+    key(alt-m v)
+    insert("x")
+    edit.right()
+    insert("=")
+    key(alt-m v)
+    insert("b")
+    edit.right()
+    edit.right()
+nil: "null"
+column: "col"
+call: 
+    insert("\mathcal ")
 
 accent tilde: key(alt-m &)
 accent dot: key(alt-m .)
@@ -252,3 +293,5 @@ insert quote: key(alt-p q)
 insert verse: key(alt-p v)
 
 <number>: insert(number)
+subset: "\subset "
+proper subset: "\subseteq "
