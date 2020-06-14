@@ -14,97 +14,39 @@ greek {tex_greek_letters}:
     key(\)
     insert(tex_greek_letters)
     key(space)
-#   <user.digits>:
-#  	insert(digits)
 <number> {mathfly_fractions}:
 	key(alt-m f)
 	insert(number)
 	key(down)
 	insert(mathfly_fractions)
-	key(right)
-# TODO:
+    key(right)
+
+#matrices are surrounded by square brackets
+matrix one by <number>:
+    key("alt-m [")
+    insert('\\array ')
+    key("alt-m c i")
+    repeat(number-2)
+
+matrix <number> by one:
+    key("alt-m [")
+    insert('\\array ')
+    key("alt-m w i")
+    repeat(number-2)
+
 matrix <number> by <number>:
     key("alt-m [")
  	insert("\\array ")
  	key("alt-m w i")
  	repeat(number_1-2)
  	key("alt-m c i")
- 	repeat(number_2-2)
+     repeat(number_2-2)
+
 check: key(escape end enter ctrl-m)
 fraction: key(alt-m f)
 over: key(shift-left alt-m f down)
 (super script | to the power): key(^)
 sub script: key(_)
-under (<user.letter>):
-    key(_)
-    insert(letter)
-    edit.right()
-
-under (<number>):
-    key(_)
-    insert(number)
-    edit.right()
-
-<user.letter> under (<number>):
-    insert(letter)
-    key(_)
-    insert(number)
-    edit.right()
-
-super (<number>):
-    key(^)
-    insert(number)
-    edit.right()
-
-super (<user.letter>):
-    key(^)
-    insert(letter)
-    edit.right()
-transpose:
-    key(^)
-    insert("T")
-    edit.right()
-trace: insert("tr")
-medium space: insert("\: ")
-
-line right:
-    key("alt-m c z")
-inverse:
-    key(^)
-    insert("-1")
-    key(right)
-switch <number> by <number>:
-    insert("R_{number} \leftrightarrow R_{number_2} ")
-    key(right)
-operations:
-    insert("\stackrelthree ")
-    key(down)
-    insert("~")
-    key(up)
-scale <number> by <number>:
-    insert("R_{number} ")
-    key(alt-/)
-    insert("{number_2}R_{number} ")
-    key(right)
-add <number> by <number> row <number>:
-    insert("R_{number} ")
-    key(alt-/)
-    insert("R_{number} +{number_2}R_{number_3} ")
-    key(right)
-minus <number> by <number> row <number>:
-    insert("R_{number} ")
-    key(alt-/)
-    insert("R_{number} -{number_2}R_{number_3} ")
-    key(right)
-row <number>:
-    insert("R_")
-    insert(number)
-    key(right)
-operation:
-    insert("\overset ")
-    insert("~")
-    key(up)
-not equal: key(alt-m =)
 squared: key(^ 2 right)
 cubed: key(^ 3 right)
 stop: "\cdot "
@@ -118,63 +60,10 @@ add matrix row: key(alt-m w i)
 (delete | remove) matrix row: key(alt-m w d)
 add matrix column: key(alt-m c i)
 (delete | remove) matrix column: key(alt-m c d)
-equivalent: "\leftrightarrow "
-square root: "\sqrt " 
-<user.letter> dots:"\{letter}dots "
-<user.letter> by <user.letter>:
-    key(ctrl-m)
-    insert(letter_1)
-    edit.right()
-    insert(" x ")
-    key(ctrl-m)
-    insert(letter_2)
-    edit.right()
-    edit.right()
-    insert("  ")
-
-
-
-#Replaced hat with vector
-mag: "\Vert "
-hat <user.letter>:
- key(alt-m v)
- insert(letter)
- edit.right() 
-zero matrix:
-    key(alt-m v)
-    insert("0")
-    edit.right()
-
-homogenous system:
-    key(ctrl-m)
-    insert("A")
-    key(alt-m v)
-    insert("x")
-    edit.right()
-    insert("=")
-    key(alt-m v)
-    insert("0")
-    edit.right()
-    edit.right()
-linear system:
-    key(ctrl-m)
-    insert("A")
-    key(alt-m v)
-    insert("x")
-    edit.right()
-    insert("=")
-    key(alt-m v)
-    insert("b")
-    edit.right()
-    edit.right()
-nil: "null"
-column: "col"
-call: 
-    insert("\mathcal ")
 
 accent tilde: key(alt-m &)
 accent dot: key(alt-m .)
-accent double dot" : key(alt-m \")
+accent double dot : key("alt-m \")
 accent bar: key(alt-m -)
 accent vector: key(alt-m v)
 #
@@ -295,3 +184,135 @@ insert verse: key(alt-p v)
 <number>: insert(number)
 subset: "\subset "
 proper subset: "\subseteq "
+
+#commands for quick subscripts
+under (<user.letter>):
+    key(_)
+    insert(letter)
+    edit.right()
+
+under (<number>):
+    key(_)
+    insert(number)
+    edit.right()
+
+<user.letter> under (<number>):
+    insert(letter)
+    key(_)
+    insert(number)
+    edit.right()
+#commands for quick superscripts
+super (<number>):
+    key(^)
+    insert(number)
+    edit.right()
+
+super (<user.letter>):
+    key(^)
+    insert(letter)
+    edit.right()
+#commands and symbols for matrix operations
+transpose:
+    key(^)
+    insert("T")
+    edit.right()
+trace: insert("tr")
+medium space: insert("\: ")
+#use this in a matrix to add line to create an augmented matrix
+line right:
+    key("alt-m c z")
+inverse:
+    key(^)
+    insert("-1")
+    key(right)
+switch <number> by <number>:
+    insert("R_{number} \leftrightarrow R_{number_2} ")
+    key(right)
+#insert operations in labels 
+operation:
+    insert("\overset ")
+    insert("~")
+    key(up)
+operations:
+    insert("\stackrelthree ")
+    key(down)
+    insert("~")
+    key(up)
+#matrix row operations
+scale <number> by <number>:
+    insert("R_{number} ")
+    key(alt-/)
+    insert("{number_2}R_{number} ")
+    key(right)
+add <number> by <number> row <number>:
+    insert("R_{number} ")
+    key(alt-/)
+    insert("R_{number} +{number_2}R_{number_3} ")
+    key(right)
+minus <number> by <number> row <number>:
+    insert("R_{number} ")
+    key(alt-/)
+    insert("R_{number} -{number_2}R_{number_3} ")
+    key(right)
+row <number>:
+    insert("R_")
+    insert(number)
+    key(right)
+
+not equal: key(alt-m =)
+equivalent: "\leftrightarrow "
+
+square root: "\sqrt " 
+#vdots, ldots, cdots
+<user.letter> dots:"\{letter}dots "
+#e*g. "m x n matrix"
+<user.letter> by <user.letter>:
+    key(ctrl-m)
+    insert(letter_1)
+    edit.right()
+    insert(" x ")
+    key(ctrl-m)
+    insert(letter_2)
+    edit.right()
+    edit.right()
+    insert("  ")
+
+#used to denote magnitude
+mag: "\Vert "
+#Replaced hat with vector
+hat <user.letter>:
+ key(alt-m v)
+ insert(letter)
+ edit.right() 
+
+zero matrix:
+    key(alt-m v)
+    insert("0")
+    edit.right()
+
+homogenous system:
+    key(ctrl-m)
+    insert("A")
+    key(alt-m v)
+    insert("x")
+    edit.right()
+    insert("=")
+    key(alt-m v)
+    insert("0")
+    edit.right()
+    edit.right()
+linear system:
+    key(ctrl-m)
+    insert("A")
+    key(alt-m v)
+    insert("x")
+    edit.right()
+    insert("=")
+    key(alt-m v)
+    insert("b")
+    edit.right()
+    edit.right()
+nil: "null"
+column: "col"
+call: 
+    insert("\mathcal ")
