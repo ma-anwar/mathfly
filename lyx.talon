@@ -1,10 +1,12 @@
 app: lyx 
 app: LyX.exe
 app: LyX for Windows
+
 -
-#settings():
-#    key_wait = 1.4
-#    insert_wait = 10
+
+settings():
+    key_wait = 1.4
+    insert_wait = 10
 
 {tex_symbols}:
     key(\)
