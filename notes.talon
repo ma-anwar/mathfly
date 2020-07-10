@@ -1,18 +1,25 @@
 
 app: lyx
 -
-definition <phrase>:
+state define <phrase>:
     insert("Definition - ")
     insert(user.formatted_text(phrase, "title"))
     insert(": ")
 
 
 
-idea <phrase>:
+state idea <phrase>:
     insert("Thm - ")
     insert(user.formatted_text(phrase, "title"))
     insert(": ")
 
+justify <phrase>:
+    key(end)
+    key(end)
+    insert('  - ')
+    insert(phrase)
+append:
+    key(end)
 example: insert("e.g. ")
 capital example: insert("E.g. ")
 proof let:insert("Let ")
@@ -48,10 +55,9 @@ push comma:
     key(end)
     key(end)
     insert(", ")
-the: "the "
-by: "by "
-of: "of "
-then: "then "
 push math:
     key(space)
     key(ctrl-m)
+
+state proof: "Pf: "
+state solution: "Soln: "

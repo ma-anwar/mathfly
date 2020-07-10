@@ -111,6 +111,20 @@ symbols = {
     "continued fraction (right)": "cfracright",
     "text binomial": "tbinom",
     "display binomial": "dbinom",
+    #my additions
+    "long right arrow": "longrightarrow",
+    #denote magnitude of factor
+    "mag": "Vert",
+    "low dots": "ldots",
+    "square root": "sqrt",
+    "equivalent": "leftrightarrow",
+    "medium space": ":",
+    "proper subset": "subseteq",
+    "stop": "cdot",
+    "member": "in",
+    "normal text": "textrm",
+    "long equivalent": "longleftrightarrow",
+    
 }
 
 greek_letters = {

@@ -7,7 +7,6 @@ app: LyX for Windows
 settings():
     key_wait = 1.4
     insert_wait = 10
-
 {tex_symbols}:
     key(\)
     insert(tex_symbols)
@@ -44,6 +43,15 @@ matrix <number> by <number>:
  	key("alt-m c i")
      repeat(number_2-2)
 
+cross <number> by <number>:
+#    insert('\\left| \\right|') 
+    key("alt-m |")
+ 	insert("\\array ")
+ 	key("alt-m w i")
+ 	repeat(number_1-2)
+ 	key("alt-m c i")
+     repeat(number_2-2)
+
 check: key(escape end enter ctrl-m)
 fraction: key(alt-m f)
 over: key(shift-left alt-m f down)
@@ -51,8 +59,6 @@ over: key(shift-left alt-m f down)
 sub script: key(_)
 squared: key(^ 2 right)
 cubed: key(^ 3 right)
-stop: "\cdot "
-member: "\in "
 inverse: key(^ - 1 right)
 (prekris | parens | brackets): key(alt-m ()
 (brax | square brackets): key(alt-m [)
@@ -183,9 +189,6 @@ insert quotation: key(alt-p alt-q)
 insert quote: key(alt-p q)
 insert verse: key(alt-p v)
 
-<number>: insert(number)
-subset: "\subset "
-proper subset: "\subseteq "
 
 #commands for quick subscripts
 under (<user.letter>):
@@ -219,10 +222,11 @@ transpose:
     insert("T")
     edit.right()
 trace: insert("tr")
-medium space: insert("\: ")
 #use this in a matrix to add line to create an augmented matrix
 line right:
     key("alt-m c z")
+line left:
+    key("alt-m c a")
 inverse:
     key(^)
     insert("-1")
@@ -262,11 +266,7 @@ row <number>:
     key(right)
 
 not equal: key(alt-m =)
-equivalent: "\leftrightarrow "
 
-square root: "\sqrt " 
-#vdots, ldots, cdots
-<user.letter> dots:"\{letter}dots "
 #e*g. "m x n matrix"
 <user.letter> by <user.letter>:
     key(ctrl-m)
@@ -279,15 +279,13 @@ square root: "\sqrt "
     edit.right()
     insert("  ")
 
-#used to denote magnitude
-mag: "\Vert "
 #Replaced hat with vector
 hat <user.letter>:
  key(alt-m v)
  insert(letter)
  edit.right() 
 
-zero matrix:
+zero [matrix | vector]:
     key(alt-m v)
     insert("0")
     edit.right()
@@ -314,7 +312,23 @@ linear system:
     insert("b")
     edit.right()
     edit.right()
-nil: "null"
-column: "col"
+state null: "null"
+state column: "col"
 call: 
     insert("\mathcal ")
+oh: "0"
+
+math transformation:
+    insert(' ')
+    key(ctrl-m)
+    insert("T:\\mathbb R ^n \\longrightarrow \\mathbb R ^m   ")
+
+state span: "sp"
+state done: "\\blacksquare "
+one to one: " 1-1 " 
+determine <user.letter>:
+    insert('\det ')
+    key(alt-m ( )
+    user.keys_uppercase_letters(letter)
+    edit.right()
+    
