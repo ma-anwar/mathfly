@@ -34,7 +34,9 @@ matrix <user.letter>:
 <number> by <number>:
     insert(" {number_1} x {number_2} ")
     
-next: key(tab)
+next:
+    key(end)
+    key(tab)
 kick: ", "
 that is: "i.e. " 
 #push:
@@ -61,3 +63,14 @@ push math:
 
 state proof: "Pf: "
 state solution: "Soln: "
+ordinal <user.letter>:
+    insert(' ')
+    key(ctrl-m)
+    insert('{letter}^th   ')
+    key(space) 
+state where: " where "
+mark <user.letter>:
+    insert(' ')
+    key(ctrl-m)
+    insert('{letter}  ')
+    key(space)

@@ -4,8 +4,8 @@ mod = Module()
 ctx = Context()
 
 mod.list("tex_document_classes", desc="TeX document classes")
-
-ctx.lists["tex_document_classes"] = {
+mod.list("tex_packages", desc="TeX packages")
+ctx.lists["user.tex_document_classes"] = {
     "article": "article",
     "beamer": "beamer",
     "book": "book",
@@ -14,8 +14,8 @@ ctx.lists["tex_document_classes"] = {
     "report": "report",
 }
 
-mod.list("tex_packages", desc="TeX packages")
-ctx.lists["tex_packages"] = {
+
+ctx.lists["user.tex_packages"] = {
     "AMS math": "amsmath",
     # "bib latex"   = ["[style=authoryear]", "biblatex"]
     "colour": "color",
@@ -28,10 +28,11 @@ ctx.lists["tex_packages"] = {
     "tabular X": "tabularx",
     "X color": "xcolor",
     "wrap figure": "wrapfig",
+    "ticks": "tikz",
 }
 
 mod.list("tex_environments", desc="TeX environments")
-ctx.lists["tex_environments"] = {
+ctx.lists["user.tex_environments"] = {
     "abstract": "abstract",
     "add margin": "addmargin",
     "align": "align",
@@ -63,6 +64,7 @@ ctx.lists["tex_environments"] = {
     # "long table"                  = ["longtable", "{lll}"]
     # "tabular"                     = ["tabular", "{llll}"]
     # "tabular X"                   = ["tabular X", "{l X}"]
+    "tick picture" : "tikzpicture",
     "theorem": "theorem",
     "title page": "titlepage",
     "verbatim": "verbatim",
@@ -71,7 +73,7 @@ ctx.lists["tex_environments"] = {
 }
 
 mod.list("tex_commands", desc="TeX commands")
-ctx.lists["tex_commands"] = {
+ctx.lists["user.tex_commands"] = {
     "author": "author",
     "[add] bib resource": "addbibresource",
     "caption": "caption",
@@ -112,7 +114,7 @@ ctx.lists["tex_commands"] = {
 }
 
 mod.list("tex_commands_noarg", desc="TeX commands without arguments")
-ctx.lists["tex_commands_noarg"] = {
+ctx.lists["user.tex_commands_noarg"] = {
     "centering": "centering",
     "column": "column{0.5\\textwidth}",
     "footnote mark": "footnotemark[]",
@@ -133,9 +135,31 @@ ctx.lists["tex_commands_noarg"] = {
     "vertical line": "vline",
 }
 
+#mod.list("tikz_commands", desc='Tickz commands for drawing')
+#ctx.lists['tikz_commands'] = {
+#    'draw': 'draw',
+#    'fill draw' : 'filldraw',
+#    "command": "tikz",
+#    'clip':'clip',
+#    'fill':'fill',
+#    'bounding box':'useaboundingbox',
+#    'shade':'shade', 
+#    'shade draw':'shadedraw',
+#    'rectangle path':'rectanglepath',
+#    'path':'path',
+#    'for each':'foreach',
+#    'display style':'displaystyle',
+#    'color let':'colorlet',
+#    'coordinate':'coordinate',
+#
+#
+#
+#
+#}
+
 
 mod.list("tex_templates", desc="TeX templates")
-ctx.lists["tex_templates"] = {
+ctx.lists["user.tex_templates"] = {
     "header": r'''
 \documentclass[12pt, a4paper]{article}
 

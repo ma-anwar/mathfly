@@ -4,18 +4,19 @@ app: LyX for Windows
 
 -
 
-settings():
-    key_wait = 1.4
-    insert_wait = 10
-{tex_symbols}:
+#settings():
+#    key_wait = 2
+#    insert_wait = 14
+tag(): user.line_commands
+<user.tex_symbols>:
     key(\)
     insert(tex_symbols)
     key(space)
-greek {tex_greek_letters}:
+greek <user.tex_greek_letters>:
     key(\)
     insert(tex_greek_letters)
     key(space)
-<number> {mathfly_fractions}:
+<number> <user.mathfly_fractions>:
 	key(alt-m f)
 	insert(number)
 	key(down)
@@ -60,7 +61,7 @@ sub script: key(_)
 squared: key(^ 2 right)
 cubed: key(^ 3 right)
 inverse: key(^ - 1 right)
-(prekris | parens | brackets): key(alt-m ()
+(prekris | parens | brackets | parents): key(alt-m ()
 (brax | square brackets): key(alt-m [)
 curly [brackets]: key(alt-m {)
 absolute: key(alt-m |)
@@ -85,6 +86,11 @@ summation:
 	insert("\\stackrelthree ")
     key(n down)
     insert("\\sum ")
+    key(down)
+big union:
+    insert('\\stackrelthree ')
+    key(down)
+    insert('\\bigcup ')
     key(down)
 blank product: "\\prod "
 product:
@@ -332,3 +338,21 @@ determine <user.letter>:
     user.keys_uppercase_letters(letter)
     edit.right()
     
+determine:
+    insert('\det')
+    key(alt-m ()
+
+cases: "\cases "
+huge zero:
+    insert("\\text{\huge0")
+    edit.right()
+    edit.right()
+part real:
+    insert('\\textnormal Re ')
+    edit.right()
+part imagine:
+    insert('\\textnormal Im ')
+    edit.right()
+argument:
+    insert('\\textnormal Arg')
+    edit.right()

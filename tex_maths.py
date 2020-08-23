@@ -1,6 +1,9 @@
 from talon import Context, Module
 
 mod = Module()
+
+mod.list("tex_greek_letters", desc="TeX greek letters")
+mod.list("tex_symbols", desc="TeX mathematical symbols")
 ctx = Context()
 
 symbols = {
@@ -45,7 +48,7 @@ symbols = {
     "hyperbolic cotangent": "coth",
     "hyperbolic tangent": "tanh",
     # functions
-    "argument": "arg",
+    #"argument": "arg",
     "degree": "deg",
     "determinant": "det",
     "dimension": "dim",
@@ -62,8 +65,8 @@ symbols = {
     "member [of]": "in",
     "for all": "forall",
     "[is] not equal [to]": "neq",
-    "[is] greater [than] [or] equal [to]": "geq",
-    "[is] less [than] [or] equal [to]": "leq",
+    "greater or equal": "geq",
+    "less or equal": "leq",
     "[is] approximately [equal] [to]": "approx",
     "proportional [to]": "propto",
     "preference less [than]": "prec",
@@ -124,6 +127,7 @@ symbols = {
     "member": "in",
     "normal text": "textrm",
     "long equivalent": "longleftrightarrow",
+    "overline": "overline",
     
 }
 
@@ -153,11 +157,11 @@ greek_letters = {
     "omega": "omega",
 }
 
-mod.list("tex_symbols", desc="TeX mathematical symbols")
-ctx.lists['tex_symbols'] = symbols
 
-mod.list("tex_greek_letters", desc="TeX greek letters")
-ctx.lists["tex_greek_letters"] = {
+ctx.lists['user.tex_symbols'] = symbols
+
+
+ctx.lists["user.tex_greek_letters"] = {
     **greek_letters,
     **{f"big {k}": v.title() for k, v in greek_letters.items()}
 }
