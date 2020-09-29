@@ -4,23 +4,23 @@ app: LyX for Windows
 
 -
 
-#settings():
-#    key_wait = 2
-#    insert_wait = 14
-tag(): user.line_commands
-<user.tex_symbols>:
+settings():
+    key_wait = 2
+    insert_wait = 14
+#tag(): user.line_commands
+{user.tex_symbols}:
     key(\)
     insert(tex_symbols)
     key(space)
-greek <user.tex_greek_letters>:
+greek {user.tex_greek_letters}:
     key(\)
     insert(tex_greek_letters)
     key(space)
-<number> <user.mathfly_fractions>:
+<number> {user.mathfly_fractions}:
 	key(alt-m f)
 	insert(number)
 	key(down)
-	insert(mathfly_fractions)
+    insert(mathfly_fractions)
     key(right)
 
 #matrices are surrounded by square brackets
@@ -65,6 +65,7 @@ inverse: key(^ - 1 right)
 (brax | square brackets): key(alt-m [)
 curly [brackets]: key(alt-m {)
 absolute: key(alt-m |)
+angles: key(alt-m <)
 add matrix row: key(alt-m w i)
 (delete | remove) matrix row: key(alt-m w d)
 add matrix column: key(alt-m c i)
@@ -195,6 +196,11 @@ insert quotation: key(alt-p alt-q)
 insert quote: key(alt-p q)
 insert verse: key(alt-p v)
 
+insert unnumbered part: key(alt-p * 0)
+insert unnumbered (section | heading): key(alt-p * 2)
+insert unnumbered sub (section | heading): key(alt-p * 3)
+insert unnumbered sub sub (section | heading): key(alt-p * 4)
+
 
 #commands for quick subscripts
 under (<user.letter>):
@@ -277,9 +283,7 @@ not equal: key(alt-m =)
 <user.letter> by <user.letter>:
     key(ctrl-m)
     insert(letter_1)
-    edit.right()
-    insert(" x ")
-    key(ctrl-m)
+    insert("\\times ")
     insert(letter_2)
     edit.right()
     edit.right()
@@ -356,3 +360,11 @@ part imagine:
 argument:
     insert('\\textnormal Arg')
     edit.right()
+mark ceiling:
+    insert("\lceil ")
+    insert("\\rceil ") 
+    edit.left()
+mark floor:
+    insert("\lfloor ")
+    insert("\\rfloor ") 
+    edit.left()

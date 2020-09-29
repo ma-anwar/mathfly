@@ -63,6 +63,7 @@ symbols = {
     # relations
     "there exists": "exists",
     "member [of]": "in",
+    "not in":"notin",
     "for all": "forall",
     "[is] not equal [to]": "neq",
     "greater or equal": "geq",
@@ -74,9 +75,9 @@ symbols = {
     "preference greater [than]": "succ",
     "preference greater equal": "succeq",
     # logic
-    "logic and": "land",
-    "logic or": "lor",
-    "logic not": "lnot",
+    "mark and": "land",
+    "mark or": "lor",
+    "mark not": "lnot",
     #
     "left arrow": "leftarrow",
     "right arrow": "rightarrow",
@@ -95,7 +96,7 @@ symbols = {
     "vertical dots": "vdots",
     # sets
     "empty set": "emptyset",
-    "subset": "subset",
+    "subset": "subseteq",
     "superset": "supset",
     "strict subset": "subsetneq",
     "strict superset": "supsetneq",
@@ -122,13 +123,16 @@ symbols = {
     "square root": "sqrt",
     "equivalent": "leftrightarrow",
     "medium space": ":",
-    "proper subset": "subseteq",
+    "proper subset": "subset",
     "stop": "cdot",
     "member": "in",
     "normal text": "textrm",
     "long equivalent": "longleftrightarrow",
     "overline": "overline",
-    
+    "restriction":"restriction",    
+    "minus set": "setminus",
+    "circle": "circ",
+    "diamond": "diamond",
 }
 
 greek_letters = {
@@ -158,7 +162,7 @@ greek_letters = {
 }
 
 
-ctx.lists['user.tex_symbols'] = symbols
+ctx.lists["user.tex_symbols"] = symbols
 
 
 ctx.lists["user.tex_greek_letters"] = {

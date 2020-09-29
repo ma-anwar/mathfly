@@ -7,6 +7,15 @@ state define <phrase>:
     insert(": ")
 
 
+operator <user.letters>:
+    insert("\\text ")
+    sleep(10ms)
+    user.keys_lower_case_letters(letters)
+    edit.right()
+state prop <phrase>:
+    insert("Proposition - ")
+    insert(user.formatted_text(phrase, "title"))
+    insert(": ")
 
 state idea <phrase>:
     insert("Thm - ")
@@ -74,3 +83,30 @@ mark <user.letter>:
     key(ctrl-m)
     insert('{letter}  ')
     key(space)
+relation <user.letter>:
+    key(ctrl-m)
+    insert('\mathcal ')
+    user.keys_uppercase_letters(letter)
+    edit.right()
+    edit.right()
+
+space relation <user.letter>:
+    insert(' ')
+    key(ctrl-m)
+    insert('\mathcal ')
+    user.keys_uppercase_letters(letter)
+    edit.right()
+    edit.right()
+    insert('  ')
+state cardinality <user.letter>:
+   key(ctrl-m)       
+   key(alt-m |)
+   user.keys_uppercase_letters(letter)
+   edit.right()
+fill <number>:
+    insert(number)
+    key(tab)
+
+fill pipe:
+    insert('|')
+    key(tab)
