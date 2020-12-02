@@ -110,3 +110,25 @@ fill <number>:
 fill pipe:
     insert('|')
     key(tab)
+Justify induction: 
+    key(end)
+    key(end)
+    insert(' [IH]')
+invariant: " LI "
+state basis: "BASIS: "
+state induction step: "INDUCTION STEP:  "
+state arbitrary iteration: "Consider an arbitrary iteration of the loop."
+state loop: "On entering the loop,"
+suppose invariant:  "Suppose LI holds before the iteration. [IH]"
+justify line <number>:
+    key(end)
+    key(end)
+    insert(' [Line {number}]')
+
+justification:
+    key(end)
+    key(end)
+    insert('  []')
+    edit.left()
+    
+    

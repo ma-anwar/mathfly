@@ -140,7 +140,10 @@ rational numbers:
 	key(right)
 natural numbers:
 	insert("\\mathbb N")
-	key(right)
+    key(right)
+finite field:
+    insert('\\mathbb F')
+    key(right)
 #
 # Program control
 #

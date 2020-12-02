@@ -133,6 +133,8 @@ symbols = {
     "minus set": "setminus",
     "circle": "circ",
     "diamond": "diamond",
+    "congruent":"equiv",
+    
 }
 
 greek_letters = {
@@ -154,7 +156,7 @@ greek_letters = {
     "row": "rho",
     "sigma": "sigma",
     "tau": "tau",
-    "upsilon": "upsilon",
+        #"oopsilon": "upsilon",
     "phi": "phi",
     "chi": "chi",
     "sigh": "psi",
