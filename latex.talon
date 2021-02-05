@@ -18,6 +18,7 @@ insert <user.tex_commands_noarg>:
     insert("\\tex_commands_noarg")
 #tick {tikz_commands}:
 #    insert('\\{tikz_commands} ')
+
 greek <user.tex_greek_letters>:
     insert("\\{tex_greek_letters} ")
 symbol <user.tex_symbols>:

@@ -9,9 +9,9 @@ ctx = Context()
 symbols = {
     # operators
     "fraction": "frac",
-    "summation": "sum",
-    "product": "prod",
-    "limit": "lim",
+    # "summation": "sum",
+    # "product": "prod",
+    # "limit": "lim",
     "[square] root": "sqrt",
     "generic root": "root",
     "integral": "int",
@@ -31,7 +31,7 @@ symbols = {
     "accent tilde": "tilde",
     "accent dot": "dot",
     "accent double dot": "ddot",
-    "accent bar": "bar",
+    # "accent bar": "bar",
     "accent vector": "vec",
     # trig
     "sine": "sin",
@@ -48,7 +48,7 @@ symbols = {
     "hyperbolic cotangent": "coth",
     "hyperbolic tangent": "tanh",
     # functions
-    #"argument": "arg",
+    # "argument": "arg",
     "degree": "deg",
     "determinant": "det",
     "dimension": "dim",
@@ -63,7 +63,7 @@ symbols = {
     # relations
     "there exists": "exists",
     "member [of]": "in",
-    "not in":"notin",
+    "not in": "notin",
     "for all": "forall",
     "[is] not equal [to]": "neq",
     "greater or equal": "geq",
@@ -115,9 +115,9 @@ symbols = {
     "continued fraction (right)": "cfracright",
     "text binomial": "tbinom",
     "display binomial": "dbinom",
-    #my additions
+    # my additions
     "long right arrow": "longrightarrow",
-    #denote magnitude of factor
+    # denote magnitude of factor
     "mag": "Vert",
     "low dots": "ldots",
     "square root": "sqrt",
@@ -129,12 +129,11 @@ symbols = {
     "normal text": "textrm",
     "long equivalent": "longleftrightarrow",
     "overline": "overline",
-    "restriction":"restriction",    
-    "minus set": "setminus",
+    "restriction": "restriction",
+    #  "minus set": "setminus",
     "circle": "circ",
     "diamond": "diamond",
-    "congruent":"equiv",
-    
+    "congruent": "equiv",
 }
 
 greek_letters = {
@@ -156,7 +155,7 @@ greek_letters = {
     "row": "rho",
     "sigma": "sigma",
     "tau": "tau",
-        #"oopsilon": "upsilon",
+    # "oopsilon": "upsilon",
     "phi": "phi",
     "chi": "chi",
     "sigh": "psi",
@@ -169,6 +168,5 @@ ctx.lists["user.tex_symbols"] = symbols
 
 ctx.lists["user.tex_greek_letters"] = {
     **greek_letters,
-    **{f"big {k}": v.title() for k, v in greek_letters.items()}
+    **{f"big {k}": v.title() for k, v in greek_letters.items()},
 }
-

@@ -10,8 +10,13 @@ state define <phrase>:
 operator <user.letters>:
     insert("\\text ")
     sleep(10ms)
-    user.keys_lower_case_letters(letters)
+    user.insert_formatted(letters, "alldown")
     edit.right()
+capital operator <user.letter> <user.letters>:
+    insert('\\text ')
+    sleep(10ms)
+    user.insert_formatted(letter, "ALL_CAPS")
+    user.keys_lower_case_letters(letters)
 state prop <phrase>:
     insert("Proposition - ")
     insert(user.formatted_text(phrase, "title"))
@@ -86,7 +91,7 @@ mark <user.letter>:
 relation <user.letter>:
     key(ctrl-m)
     insert('\mathcal ')
-    user.keys_uppercase_letters(letter)
+    user.insert_formatted(letter,"ALL_CAPS")
     edit.right()
     edit.right()
 
@@ -94,7 +99,7 @@ space relation <user.letter>:
     insert(' ')
     key(ctrl-m)
     insert('\mathcal ')
-    user.keys_uppercase_letters(letter)
+    user.insert_formatted(letter,"ALL_CAPS")
     edit.right()
     edit.right()
     insert('  ')
@@ -110,25 +115,22 @@ fill <number>:
 fill pipe:
     insert('|')
     key(tab)
-Justify induction: 
-    key(end)
-    key(end)
-    insert(' [IH]')
-invariant: " LI "
-state basis: "BASIS: "
-state induction step: "INDUCTION STEP:  "
-state arbitrary iteration: "Consider an arbitrary iteration of the loop."
-state loop: "On entering the loop,"
-suppose invariant:  "Suppose LI holds before the iteration. [IH]"
-justify line <number>:
-    key(end)
-    key(end)
-    insert(' [Line {number}]')
+pump <number>:
+    insert(number)
+    key(down)
+pump alternating:
+    insert('0')
+    key(down)
+    insert('1')
+    key(down)
 
-justification:
-    key(end)
-    key(end)
-    insert('  []')
-    edit.left()
-    
-    
+
+
+big equivalent:
+    insert('LEQV ')
+state where:
+    insert('where ')
+state key:
+    insert(' key ')
+state node:
+    insert(' node ' )

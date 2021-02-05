@@ -1,4 +1,5 @@
 app: lyx 
+
 app: LyX.exe
 app: LyX for Windows
 
@@ -74,20 +75,20 @@ add matrix column: key(alt-m c i)
 accent tilde: key(alt-m &)
 accent dot: key(alt-m .)
 accent double dot : key("alt-m \")
-accent bar: key(alt-m -)
+accent bar: key(alt-m b)
 accent vector: key(alt-m v)
 #
-blank summation: "\\sum "
+#blank summation: "\\sum "
 summation:
 	insert("\\stackrelthree ")
     key(down)
     insert("\\sum ")
     key(down)
-(summation | sum) to N:
-	insert("\\stackrelthree ")
-    key(n down)
-    insert("\\sum ")
-    key(down)
+# (summation | sum) to N:
+	# insert("\\stackrelthree ")
+    # key(n down)
+    # insert("\\sum ")
+    # key(down)
 big union:
     insert('\\stackrelthree ')
     key(down)
@@ -99,15 +100,9 @@ product:
     key(down)
     insert("\\prod ")
     key(down)
-product to N:
-	insert("\\stackrelthree ")
-    key(n down)
-    insert("\\prod ")
-    key(down)
 limit:
 	insert("\\underset \\lim ")
 	key(down)
-blank limit: "\\lim "
 label above: "\\overset "
 label below: "\\underset "
 prime:
@@ -198,7 +193,8 @@ insert bibliography: key(alt-p shift-b)
 insert quotation: key(alt-p alt-q)
 insert quote: key(alt-p q)
 insert verse: key(alt-p v)
-
+insert code: key(alt-p c)
+Insert typewriter: key(ctrl-shift-p)
 insert unnumbered part: key(alt-p * 0)
 insert unnumbered (section | heading): key(alt-p * 2)
 insert unnumbered sub (section | heading): key(alt-p * 3)
@@ -238,6 +234,11 @@ transpose:
     edit.right()
 trace: insert("tr")
 #use this in a matrix to add line to create an augmented matrix
+line above:
+    key("alt-m w a")
+line below:
+    key("alt-m w z")
+
 line right:
     key("alt-m c z")
 line left:
@@ -293,15 +294,19 @@ not equal: key(alt-m =)
     insert("  ")
 
 #Replaced hat with vector
-hat <user.letter>:
- key(alt-m v)
- insert(letter)
- edit.right() 
+hat <user.letters>:
+    key(alt-m b)
+    sleep(10ms)
+    user.insert_formatted(letters, "ALL_CAPS")
+# key(alt-m v)
+ #insert(letter)
+#  key(shift-letter)
+    edit.right() 
 
-zero [matrix | vector]:
-    key(alt-m v)
-    insert("0")
-    edit.right()
+# zero [matrix | vector]:
+#     key(alt-m v)
+#     insert("0")
+#     edit.right()
 
 homogenous system:
     key(ctrl-m)
@@ -329,6 +334,10 @@ state null: "null"
 state column: "col"
 call: 
     insert("\mathcal ")
+calligraphic <user.letter>:
+    insert('\mathcal ')
+    user.keys_uppercase_letters(letter)
+    edit.right()
 oh: "0"
 
 math transformation:
@@ -371,3 +380,27 @@ mark floor:
     insert("\lfloor ")
     insert("\\rfloor ") 
     edit.left()
+oiler:
+    insert('e^i')
+nil: "0"
+
+travel <number>:
+    edit.down()
+    edit.left()
+    repeat(number - 1)
+arrow downright:
+    insert("\searrow ")
+arrow down left:
+    insert("\swarrow ")
+neck level:
+    edit.down()
+    edit.left()
+populate arrows:
+    edit.down()
+    edit.left()
+
+    insert("\swarrow ")
+    edit.right()
+    edit.right()
+    insert("\searrow ")
+    
