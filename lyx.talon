@@ -23,8 +23,24 @@ greek {user.tex_greek_letters}:
 	key(down)
     insert(mathfly_fractions)
     key(right)
+#anything that breaks down into cases like absolute value functions
+# Add matrix row to add more cases
+cases: "\cases "
+# Any sequence of letters that needs to be formatted normally in math mode, e.g. log
+operator <user.letters>:
+    insert("\\text ")
+    sleep(10ms)
+    user.insert_formatted(letters, "alldown")
+    edit.right()
+#enable sentence formatter in formatters.py dictionary for this to work
+#A sequence of letters that needs to be formatted normally with the first letter capital, e.g. Log
+capital operator <user.letters>:
+    insert('\\text ')
+    sleep(10ms)
+    user.insert_formatted(letters, "sentence")
 
 #matrices are surrounded by square brackets
+#some edge cases
 matrix one by <number>:
     key("alt-m [")
     insert('\\array ')
@@ -45,16 +61,41 @@ matrix <number> by <number>:
  	key("alt-m c i")
      repeat(number_2-2)
 
+#commands to add lines in matrices     
+line above:
+    key("alt-m w a")
+line below:
+    key("alt-m w z")
+    
+line right:
+    key("alt-m c z")
+line left:
+    key("alt-m c a")
+#matrix surrounded by pipes for cross product
 cross <number> by <number>:
-#    insert('\\left| \\right|') 
     key("alt-m |")
  	insert("\\array ")
  	key("alt-m w i")
  	repeat(number_1-2)
  	key("alt-m c i")
      repeat(number_2-2)
+# commands to fill matrices with numbers/symbols, use with repetitions inside of a cell, "fill one third"
+fill <number>:
+    insert(number)
+    key(tab)
+fill pipe:
+    insert('|')
+    key(tab)
+#useful for truth tables
+pump <number>:
+    insert(number)
+    key(down)
+pump alternating:
+    insert('0')
+    key(down)
+    insert('1')
+    key(down)
 
-check: key(escape end enter ctrl-m)
 fraction: key(alt-m f)
 over: key(shift-left alt-m f down)
 (super script | to the power): key(^)
@@ -77,18 +118,13 @@ accent dot: key(alt-m .)
 accent double dot : key("alt-m \")
 accent bar: key(alt-m b)
 accent vector: key(alt-m v)
-#
-#blank summation: "\\sum "
+
 summation:
 	insert("\\stackrelthree ")
     key(down)
     insert("\\sum ")
     key(down)
-# (summation | sum) to N:
-	# insert("\\stackrelthree ")
-    # key(n down)
-    # insert("\\sum ")
-    # key(down)
+
 big union:
     insert('\\stackrelthree ')
     key(down)
@@ -155,7 +191,7 @@ next tab: key(ctrl-pgdown)
 close tab: key(ctrl-w)
 move line up: key(alt-up)
 move line down: key(alt-down)
-#
+#formatting
 insert (in line formula | in line): key(alt-i h i)
 insert (numbered formula): key(alt-i h n)
 insert (display formula | display): key(alt-i h d)
@@ -174,7 +210,7 @@ insert split [environment]: key(alt-i h s)
 insert delimiters: key(alt-i h r)
 insert matrix: key(alt-i h x)
 insert macro: key(alt-i h o)
-#
+
 insert [bulleted] list: key(alt-p b)
 insert numbered list: key(alt-p e)
 insert description: key(alt-p d)
@@ -227,138 +263,38 @@ super (<user.letter>):
     key(^)
     insert(letter)
     edit.right()
-#commands and symbols for matrix operations
-transpose:
-    key(^)
-    insert("T")
-    edit.right()
-trace: insert("tr")
-#use this in a matrix to add line to create an augmented matrix
-line above:
-    key("alt-m w a")
-line below:
-    key("alt-m w z")
-
-line right:
-    key("alt-m c z")
-line left:
-    key("alt-m c a")
-inverse:
-    key(^)
-    insert("-1")
-    key(right)
-switch <number> by <number>:
-    insert("R_{number} \leftrightarrow R_{number_2} ")
-    key(right)
-#insert operations in labels 
-operation:
-    insert("\overset ")
-    insert("~")
-    key(up)
-operations:
-    insert("\stackrelthree ")
-    key(down)
-    insert("~")
-    key(up)
-#matrix row operations
-scale <number> by <number>:
-    insert("R_{number} ")
-    key(alt-/)
-    insert("{number_2}R_{number} ")
-    key(right)
-add <number> by <number> row <number>:
-    insert("R_{number} ")
-    key(alt-/)
-    insert("R_{number} +{number_2}R_{number_3} ")
-    key(right)
-minus <number> by <number> row <number>:
-    insert("R_{number} ")
-    key(alt-/)
-    insert("R_{number} -{number_2}R_{number_3} ")
-    key(right)
-row <number>:
-    insert("R_")
-    insert(number)
-    key(right)
 
 not equal: key(alt-m =)
 
-#e*g. "m x n matrix"
-<user.letter> by <user.letter>:
-    key(ctrl-m)
-    insert(letter_1)
-    insert("\\times ")
-    insert(letter_2)
-    edit.right()
-    edit.right()
-    insert("  ")
 
-#Replaced hat with vector
-hat <user.letters>:
-    key(alt-m b)
-    sleep(10ms)
-    user.insert_formatted(letters, "ALL_CAPS")
-# key(alt-m v)
- #insert(letter)
-#  key(shift-letter)
-    edit.right() 
 
 # zero [matrix | vector]:
 #     key(alt-m v)
 #     insert("0")
 #     edit.right()
 
-homogenous system:
-    key(ctrl-m)
-    insert("A")
-    key(alt-m v)
-    insert("x")
+#cardinality of a set
+state cardinality <user.letter>:
+    key(ctrl-m)       
+    key(alt-m |)
+    insert(user.formatted_text(letter, "ALL_CAPS"))
     edit.right()
-    insert("=")
-    key(alt-m v)
-    insert("0")
-    edit.right()
-    edit.right()
-linear system:
-    key(ctrl-m)
-    insert("A")
-    key(alt-m v)
-    insert("x")
-    edit.right()
-    insert("=")
-    key(alt-m v)
-    insert("b")
-    edit.right()
-    edit.right()
-state null: "null"
-state column: "col"
+
+#calligraphic font, must use capital letter
 call: 
     insert("\mathcal ")
 calligraphic <user.letter>:
     insert('\mathcal ')
     user.keys_uppercase_letters(letter)
     edit.right()
-oh: "0"
 
-math transformation:
-    insert(' ')
-    key(ctrl-m)
-    insert("T:\\mathbb R ^n \\longrightarrow \\mathbb R ^m   ")
 
-state span: "sp"
+
+
+
 state done: "\\blacksquare "
-one to one: " 1-1 " 
-determine <user.letter>:
-    insert('\det ')
-    key(alt-m ( )
-    user.keys_uppercase_letters(letter)
-    edit.right()
-    
-determine:
-    insert('\det')
-    key(alt-m ()
 
-cases: "\cases "
+#Large zero in matrices
 huge zero:
     insert("\\text{\huge0")
     edit.right()
@@ -372,6 +308,7 @@ part imagine:
 argument:
     insert('\\textnormal Arg')
     edit.right()
+#ceil and floor
 mark ceiling:
     insert("\lceil ")
     insert("\\rceil ") 
@@ -380,27 +317,23 @@ mark floor:
     insert("\lfloor ")
     insert("\\rfloor ") 
     edit.left()
+
+
 oiler:
     insert('e^i')
-nil: "0"
 
-travel <number>:
-    edit.down()
-    edit.left()
-    repeat(number - 1)
-arrow downright:
-    insert("\searrow ")
-arrow down left:
-    insert("\swarrow ")
-neck level:
-    edit.down()
-    edit.left()
-populate arrows:
-    edit.down()
-    edit.left()
 
-    insert("\swarrow ")
-    edit.right()
-    edit.right()
-    insert("\searrow ")
-    
+
+#useful commands when writing pseudocode in lyx
+chiff tab:
+    key(shift-tab)
+#array index
+op under: 
+    insert("[]")
+    edit.left()
+push semi: 
+    edit.line_end()
+    insert(";")
+    key(enter)
+semi:
+    insert(";")

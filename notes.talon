@@ -1,22 +1,29 @@
 
 app: lyx
 -
+push dot:
+    key(end)
+    key(end)
+    insert(".")
+#try to go to the very ri1ght, most useful navigation command
+push:
+    key(end)
+    key(end)
+    insert("  ")
+
+push comma:
+    key(end)
+    key(end)
+    insert(", ")1
+push math:
+    key(end)
+    key(end)
+    key(ctrl-m)
+
 state define <phrase>:
     insert("Definition - ")
     insert(user.formatted_text(phrase, "title"))
     insert(": ")
-
-
-operator <user.letters>:
-    insert("\\text ")
-    sleep(10ms)
-    user.insert_formatted(letters, "alldown")
-    edit.right()
-capital operator <user.letter> <user.letters>:
-    insert('\\text ')
-    sleep(10ms)
-    user.insert_formatted(letter, "ALL_CAPS")
-    user.keys_lower_case_letters(letters)
 state prop <phrase>:
     insert("Proposition - ")
     insert(user.formatted_text(phrase, "title"))
@@ -38,63 +45,48 @@ example: insert("e.g. ")
 capital example: insert("E.g. ")
 proof let:insert("Let ")
 if and only if: insert("iff ")
-matrix <user.letter>:
-    insert("  ")
-    key(ctrl-m)
-    user.keys_uppercase_letters(letter)
-    #insert(user.formatted_text(letter,"title"))
-    edit.right()
-    insert("  ")
+
+
+# 5 x 3 in the middle of normal text
 <number> by <number>:
     insert(" {number_1} x {number_2} ")
-    
 next:
     key(end)
     key(tab)
 kick: ", "
 that is: "i.e. " 
-#push:
-#    key(end)
-#    key(end)
-
-push dot:
-    key(end)
-    key(end)
-    insert(".")
-
-push:
-    key(end)
-    key(end)
-    insert("  ")
-
-push comma:
-    key(end)
-    key(end)
-    insert(", ")
-push math:
-    key(space)
-    key(ctrl-m)
 
 state proof: "Pf: "
 state solution: "Soln: "
+# "n^th" 
 ordinal <user.letter>:
     insert(' ')
     key(ctrl-m)
     insert('{letter}^th   ')
     key(space) 
+
 state where: " where "
+# math text letter in the middle of normal text
 mark <user.letter>:
     insert(' ')
     key(ctrl-m)
     insert('{letter}  ')
     key(space)
+#math text capital letter in the middle of normal text
+matrix <user.letter>:
+    insert("  ")
+    key(ctrl-m)
+    insert(user.formatted_text(letter, "ALL_CAPS"))
+    edit.right()
+    insert("  ")
+#calligraphic letter in the middle of normal text
 relation <user.letter>:
     key(ctrl-m)
     insert('\mathcal ')
     user.insert_formatted(letter,"ALL_CAPS")
     edit.right()
     edit.right()
-
+#calligraphic letter in the middle of normal text
 space relation <user.letter>:
     insert(' ')
     key(ctrl-m)
@@ -103,34 +95,5 @@ space relation <user.letter>:
     edit.right()
     edit.right()
     insert('  ')
-state cardinality <user.letter>:
-   key(ctrl-m)       
-   key(alt-m |)
-   user.keys_uppercase_letters(letter)
-   edit.right()
-fill <number>:
-    insert(number)
-    key(tab)
-
-fill pipe:
-    insert('|')
-    key(tab)
-pump <number>:
-    insert(number)
-    key(down)
-pump alternating:
-    insert('0')
-    key(down)
-    insert('1')
-    key(down)
-
-
-
 big equivalent:
     insert('LEQV ')
-state where:
-    insert('where ')
-state key:
-    insert(' key ')
-state node:
-    insert(' node ' )

@@ -117,7 +117,7 @@ symbols = {
     "display binomial": "dbinom",
     # my additions
     "long right arrow": "longrightarrow",
-    # denote magnitude of factor
+    # denote magnitude of vectors
     "mag": "Vert",
     "low dots": "ldots",
     "square root": "sqrt",
@@ -126,7 +126,7 @@ symbols = {
     "proper subset": "subset",
     "stop": "cdot",
     "member": "in",
-    "normal text": "textrm",
+    "normal tech": "textrm",
     "long equivalent": "longleftrightarrow",
     "overline": "overline",
     "restriction": "restriction",
