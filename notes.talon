@@ -5,7 +5,7 @@ push dot:
     key(end)
     key(end)
     insert(".")
-#try to go to the very ri1ght, most useful navigation command
+#try to go to the very right, most useful navigation command
 push:
     key(end)
     key(end)
@@ -14,7 +14,7 @@ push:
 push comma:
     key(end)
     key(end)
-    insert(", ")1
+    insert(", ")
 push math:
     key(end)
     key(end)

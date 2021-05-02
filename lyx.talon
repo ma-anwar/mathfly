@@ -4,7 +4,7 @@ app: LyX.exe
 app: LyX for Windows
 
 -
-
+#Play around with delays to make them as low as possible, mostly needed for filling matrices
 settings():
     key_wait = 2
     insert_wait = 14
@@ -13,7 +13,7 @@ settings():
     key(\)
     insert(tex_symbols)
     key(space)
-greek {user.tex_greek_letters}:
+greek {user.tex_greek_letters}:1
     key(\)
     insert(tex_greek_letters)
     key(space)
