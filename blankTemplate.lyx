@@ -8,7 +8,7 @@
 \begin_preamble
 % Variables to change every new document
 \newcommand{\hmwkClass}{Tut 0 Ex} % Course/class
-\newcommand{\hmwkNumber}{} % Assignment number
+\newcommand{\hmwkNumber}{} % Assignment number1
 
 % Constants to set once
 \newcommand{\hmwkAuthorName}{} % Your name
