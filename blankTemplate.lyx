@@ -8,7 +8,7 @@
 \begin_preamble
 % Variables to change every new document
 \newcommand{\hmwkClass}{Tut 0 Ex} % Course/class
-\newcommand{\hmwkNumber}{} % Assignment number1
+\newcommand{\hmwkNumber}{} % Assignment number
 
 % Constants to set once
 \newcommand{\hmwkAuthorName}{} % Your name
@@ -22,7 +22,8 @@
 
 % Margins
 \topmargin=-0.45in
-\evensidemargin=0in
+\evensidemargin=0in1firefox
+
 \oddsidemargin=0in
 \textwidth=6.5in
 \textheight=9.0in
@@ -34,7 +35,7 @@
 \setcounter{section}{-1}
 
 
-% Required to not count titlepage in page numbering
+% Required to not count titlepage in pyours11theusing<andIwantedtosachacoupleofthingsab1IReportWhatI#TheHancek age numbering
 \addtocounter {page} {-1}
 
 % Make a simple command for use in document body
