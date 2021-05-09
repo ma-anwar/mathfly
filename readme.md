@@ -6,4 +6,4 @@ Added various commands to facilitate work in linear algebra and general note tak
 
 To use, copy over the scripts into the user directory.
 
-For a detailed explanation and introduction [see here] (https://github.com/mrob95/mathfly-talon).
+For a detailed explanation and introduction [see here](https://github.com/mrob95/mathfly-talon).
