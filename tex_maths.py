@@ -49,17 +49,11 @@ symbols = {
     "hyperbolic tangent": "tanh",
     # functions
     # "argument": "arg",
-    "degree": "deg",
-    "determinant": "det",
-    "dimension": "dim",
-    "(natural (log | logarithm) | log natural)": "ln",
-    "logarithm": "log",
     "maximum": "max",
     "minimum": "min",
     "modulus": "bmod",
     "infimum": "inf",
     "supremum": "sup",
-    "probability": "Pr",
     # relations
     "there exists": "exists",
     "member [of]": "in",
@@ -134,6 +128,7 @@ symbols = {
     "circle": "circ",
     "diamond": "diamond",
     "congruent": "equiv",
+    "sat minus":"setminus"
 }
 
 greek_letters = {

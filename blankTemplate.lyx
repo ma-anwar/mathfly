@@ -22,7 +22,7 @@
 
 % Margins
 \topmargin=-0.45in
-\evensidemargin=0in1firefox
+\evensidemargin=0in
 
 \oddsidemargin=0in
 \textwidth=6.5in
@@ -35,7 +35,7 @@
 \setcounter{section}{-1}
 
 
-% Required to not count titlepage in pyours11theusing<andIwantedtosachacoupleofthingsab1IReportWhatI#TheHancek age numbering
+% Required to not count titlepage in page numbering
 \addtocounter {page} {-1}
 
 % Make a simple command for use in document body

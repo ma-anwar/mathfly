@@ -6,6 +6,10 @@ push dot:
     key(end)
     insert(".")
 #try to go to the very right, most useful navigation command
+# parrot(tut):
+#     key(end)
+#     key(end)
+#     insert("  ")
 push:
     key(end)
     key(end)
@@ -18,6 +22,7 @@ push comma:
 push math:
     key(end)
     key(end)
+    insert("   ") 
     key(ctrl-m)
 
 state define <phrase>:
@@ -97,3 +102,6 @@ space relation <user.letter>:
     insert('  ')
 big equivalent:
     insert('LEQV ')
+
+question <user.letter>:
+    insert(" {letter}) ")

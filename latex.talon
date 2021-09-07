@@ -31,7 +31,7 @@ final <user.symbol>:
     edit.line_end()
     insert("{symbol}")
     key(enter)
-appwend <user.symbol>:
+append <user.symbol>:
     edit.line_end()
     insert('{symbol}')
 kick:  ", "

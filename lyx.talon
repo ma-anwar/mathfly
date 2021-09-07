@@ -1,19 +1,16 @@
 app: lyx 
-
-app: LyX.exe
-app: LyX for Windows
-
 -
 #Play around with delays to make them as low as possible, mostly needed for filling matrices
 settings():
     key_wait = 2
     insert_wait = 14
-#tag(): user.line_commands
+#tag(): user.line_commands}
+
 {user.tex_symbols}:
     key(\)
     insert(tex_symbols)
     key(space)
-greek {user.tex_greek_letters}:1
+greek {user.tex_greek_letters}:
     key(\)
     insert(tex_greek_letters)
     key(space)
@@ -80,7 +77,7 @@ cross <number> by <number>:
  	key("alt-m c i")
      repeat(number_2-2)
 # commands to fill matrices with numbers/symbols, use with repetitions inside of a cell, "fill one third"
-fill <number>:
+dump <number>:
     insert(number)
     key(tab)
 fill pipe:
@@ -95,6 +92,10 @@ pump alternating:
     key(down)
     insert('1')
     key(down)
+
+justify equal:
+    insert("\overset =")
+    key(up)
 
 fraction: key(alt-m f)
 over: key(shift-left alt-m f down)
@@ -147,15 +148,6 @@ prime:
 degrees:
 	insert("^\\circ ")
 	key(right)
-exponential:
-	insert("\\exp ")
-	key(alt-m ()
-expectation:
-	insert("E")
-	key(alt-m ()
-variance:
-	insert("Var")
-	key(alt-m ()
 #
 real numbers:
 	insert("\\mathbb R")
@@ -175,6 +167,10 @@ natural numbers:
 finite field:
     insert('\\mathbb F')
     key(right)
+Polynomial Space:
+    insert('\\mathbb Pf')
+    key(right)
+
 #
 # Program control
 #
@@ -196,7 +192,7 @@ insert (in line formula | in line): key(alt-i h i)
 insert (numbered formula): key(alt-i h n)
 insert (display formula | display): key(alt-i h d)
 insert equation array: key(alt-i h e)
-insert (AMS align environment | AMS align): key(alt-i h a)
+insert align: key(alt-i h a)
 insert AMS align at [environment]: key(alt-i h t)
 insert AMS flalign [environment]: key(alt-i h f)
 insert (AMS gathered environment | AMS gather): key(alt-i h g)
@@ -228,13 +224,14 @@ insert address: key(alt-p alt-a)
 insert bibliography: key(alt-p shift-b)
 insert quotation: key(alt-p alt-q)
 insert quote: key(alt-p q)
-insert verse: key(alt-p v)
+insert verse: tkey(alt-p v)
 insert code: key(alt-p c)
 Insert typewriter: key(ctrl-shift-p)
 insert unnumbered part: key(alt-p * 0)
 insert unnumbered (section | heading): key(alt-p * 2)
 insert unnumbered sub (section | heading): key(alt-p * 3)
 insert unnumbered sub sub (section | heading): key(alt-p * 4)
+
 
 
 #commands for quick subscripts
@@ -281,7 +278,7 @@ state cardinality <user.letter>:
     edit.right()
 
 #calligraphic font, must use capital letter
-call: 
+call mode: 
     insert("\mathcal ")
 calligraphic <user.letter>:
     insert('\mathcal ')
@@ -337,3 +334,26 @@ push semi:
     key(enter)
 semi:
     insert(";")
+set compliment:
+    insert("^c ")
+
+multivariable limit:
+    insert("\\lim _(x,y)\\rightarrow ")
+    key(alt-m ()
+covariance:
+    insert("\\textrm Cov")
+    edit.right()
+    key(alt-m ()
+variance:
+    insert("\\textrm Var")
+    edit.right()
+    key(alt-m ()
+expectation:
+    insert("\\textrm E")
+    edit.right()
+    key(alt-m ()
+correlation:
+    insert("\\textrm Cor")
+    edit.right()
+    key(alt-m ()
+

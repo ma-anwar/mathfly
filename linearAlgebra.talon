@@ -49,11 +49,14 @@ determine:
     key(alt-m ()
 
 #convenient way to denote vectors quickly
-hat <user.letters>:
-  key(alt-m v)
+strong <user.letters>:
+  insert("\\mathbf ")
   sleep(10ms)
   insert(letters)
   edit.right() 
+bold mode:
+  insert("\\mathbf ")
+
 #Commands useful for taking notes in linear algebra
 one to one: " 1-1 " 
 homogenous system:
@@ -92,4 +95,12 @@ math transformation:
     edit.right()
     edit.right()
     insert("  ")
+inner product:
+    insert("\\langle \\rangle ")
+    edit.left()
 
+perpendicular:
+    insert("\\perp ")
+
+superstar:
+    insert("^* ")
