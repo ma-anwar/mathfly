@@ -51,11 +51,11 @@ matrix <number> by one:
     repeat(number-2)
 
 matrix <number> by <number>:
-    key("alt-m [")
+    key("ctrl-m [")
  	insert("\\array ")
- 	key("alt-m w i")
+ 	key("ctrl-m w i")
  	repeat(number_1-2)
- 	key("alt-m c i")
+ 	key("ctrl-m c i")
      repeat(number_2-2)
 
 #commands to add lines in matrices     
