@@ -21,17 +21,17 @@ operations:
 #matrix row operations
 scale <number> by <number>:
     insert("R_{number} ")
-    key(alt-/)
+    key(ctrl-/)
     insert("{number_2}R_{number} ")
     key(right)
 add <number> by <number> row <number>:
     insert("R_{number} ")
-    key(alt-/)
+    key(ctrl-/)
     insert("R_{number} +{number_2}R_{number_3} ")
     key(right)
 minus <number> by <number> row <number>:
     insert("R_{number} ")
-    key(alt-/)
+    key(ctrl-/)
     insert("R_{number} -{number_2}R_{number_3} ")
     key(right)
 row <number>:
@@ -40,13 +40,13 @@ row <number>:
     key(right)
 determine <user.letter>:
     insert('\det ')
-    key(alt-m ( )
+    key(ctrl-m ( )
     user.keys_uppercase_letters(letter)
     edit.right()
     
 determine:
     insert('\det')
-    key(alt-m ()
+    key(ctrl-m ()
 
 #convenient way to denote vectors quickly
 strong <user.letters>:
@@ -62,22 +62,22 @@ one to one: " 1-1 "
 homogenous system:
   key(ctrl-m)
   insert("A")
-  key(alt-m v)
+  key(ctrl-m v)
   insert("x")
   edit.right()
   insert("=")
-  key(alt-m v)
+  key(ctrl-m v)
   insert("0")
   edit.right()
   edit.right()
 linear system:
   key(ctrl-m)
   insert("A")
-  key(alt-m v)
+  key(ctrl-m v)
   insert("x")
   edit.right()
   insert("=")
-  key(alt-m v)
+  key(ctrl-m v)
   insert("b")
   edit.right()
   edit.right()
