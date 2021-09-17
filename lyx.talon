@@ -99,6 +99,7 @@ justify equal:
 
 implies: 
     insert("\Longrightarrow")
+    key(space)
 point: key(.)
 # for decimals. saying "period" is cumbersome
 fraction: key(ctrl-m f)
