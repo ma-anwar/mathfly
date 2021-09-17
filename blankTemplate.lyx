@@ -7,7 +7,8 @@
 \textclass article
 \begin_preamble
 % Variables to change every new document
-\newcommand{\hmwkClass}{Tut 0 Ex} % Course/class
+\newcommand{\hmwkClass}{Tut 0 Ex} % Course Name
+\newcommand{\hmwkCrn}{CRN 000000} % Course CRN
 \newcommand{\hmwkNumber}{} % Assignment number
 
 % Constants to set once
@@ -58,6 +59,8 @@
 \title{
 \vspace{2in}
 \textmd{\textbf{\hmwkClass}}\\
+\textmd{\textbf{\hmwkCrn}}\\
+\textmd{\textbf{\hmwkNumber}}\\
 \normalsize\vspace{0.1in}\small{ \today }\\
 \vspace{3in}
 }
