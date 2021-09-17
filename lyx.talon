@@ -97,9 +97,13 @@ justify equal:
     insert("\overset =")
     key(up)
 
+implies: 
+    insert("\Longrightarrow")
+point: key(.)
+# for decimals. saying "period" is cumbersome
 fraction: key(ctrl-m f)
 over: key(shift-left ctrl-m f down) 
-#'over' selects "phrase" to left, initiates fraction, selection becomes numerator
+# 'over' selects "phrase" to left, initiates fraction, selection becomes numerator
 (super script | to the power): key(^)
 sub script: key(_)
 squared: key(^ 2 right)
