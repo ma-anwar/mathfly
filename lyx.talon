@@ -98,7 +98,7 @@ justify equal:
     key(up)
 
 fraction: key(ctrl-m f)
-over: key(shift-left ctrl-m f down)
+over: key(shift-left ctrl-m f down) #selects 'phrase' to left, initiates fraction, selection becomes numerator
 (super script | to the power): key(^)
 sub script: key(_)
 squared: key(^ 2 right)
