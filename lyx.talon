@@ -100,6 +100,7 @@ justify equal:
 implies: 
     insert("\Longrightarrow")
     key(space)
+negative: key(-)
 point: key(.)
 # for decimals. saying "period" is cumbersome
 fraction: key(ctrl-m f)
