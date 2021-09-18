@@ -1,5 +1,6 @@
 app: lyx 
 -
+
 #Play around with delays to make them as low as possible, mostly needed for filling matrices
 settings():
     key_wait = 2
@@ -100,6 +101,7 @@ justify equal:
 implies: 
     insert("\Longrightarrow")
     key(space)
+
 negative: key(-)
 point: key(.)
 # for decimals. saying "period" is cumbersome
@@ -187,7 +189,7 @@ save as: key(ctrl-shift-s)
 math: key(ctrl-m)
 display mode: key(ctrl-shift-m)
 normal mode: key(ctrl-p s)
-view PDF: key(ctrl-r)
+view PDF: key(cmd-r)
 update PDF: key(ctrl-shift-r)
 next tab: key(ctrl-pgdown)
 (prior | previous) tab: key(ctrl-pgup)
