@@ -183,20 +183,24 @@ Polynomial Space:
 #
 # Program control
 #
-new file: key(ctrl-n)
-open file: key(ctrl-o)
-save as: key(ctrl-shift-s)
+new file: key(cmd-n)
+new window: key(cmd-shift-n)
+open file: key(cmd-o)
+save as: key(cmd-shift-s)
 math: key(ctrl-m)
-display mode: key(ctrl-shift-m)
+display mode: key(cmd-shift-m)
 normal mode: key(ctrl-p s)
 view PDF: key(cmd-r)
-update PDF: key(ctrl-shift-r)
-next tab: key(ctrl-pgdown)
-(prior | previous) tab: key(ctrl-pgup)
-close tab: key(ctrl-w)
-move line up: key(ctrl-up)
-move line down: key(ctrl-down)
+update PDF: key(cmd-shift-r)
+#TODO - fix section
+#next tab: key(ctrl-pgdown)
+#(prior | previous) tab: key(ctrl-pgup)
+close tab: key(cmd-w)
+#move line up: key(ctrl-up)
+#move line down: key(ctrl-down)
+
 #formatting
+#TODO - fix below section
 insert (in line formula | in line): key(ctrl-i h i)
 insert (numbered formula): key(ctrl-i h n)
 insert (display formula | display): key(ctrl-i h d)
