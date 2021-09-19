@@ -108,7 +108,7 @@ point: key(.)
 fraction: key(ctrl-m f)
 over: key(shift-left ctrl-m f down) 
 # 'over' selects "phrase" to left, initiates fraction, selection becomes numerator
-(super script | to the power): key(^)
+(super script | to the power | to the power of): key(^)
 sub script: key(_)
 squared: key(^ 2 right)
 cubed: key(^ 3 right)
